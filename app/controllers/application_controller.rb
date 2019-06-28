@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/"  do
-    erb "/welcome".to_sym
+    erb "/login".to_sym
   end
   # get "/signup" do
   #   erb "/signup".to_sym
