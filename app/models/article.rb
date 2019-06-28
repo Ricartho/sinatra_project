@@ -1,4 +1,4 @@
-class article < ActiveRecord::Base
+class Article < ActiveRecord::Base
   validates :article_name,presence: true
   validates :article_name,uniqueness: { case_sensitive: false }
   belongs_to :user
