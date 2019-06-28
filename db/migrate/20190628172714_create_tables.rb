@@ -1,11 +1,5 @@
-class CreateTables.rb < ActiveRecord::Migration
+class CreateTables < ActiveRecord::Migration
   def change
-    create_table :users do |el|
-      el.string :email
-      el.string :password
-      el.string :pseudo
-      el.string :type
-    end
 
     create_table :categories do |el|
       el.string :category_name
@@ -22,9 +16,11 @@ class CreateTables.rb < ActiveRecord::Migration
 
     create_table :articles do |el|
       el.string :article_name
+      el.string :description
       el.belongs_to :user, index: true
       el.belongs_to :category, index: true
       el.belongs_to :author, index: true
     end
+
   end
 end
