@@ -10,15 +10,17 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "application_secret"
   end
 
-  get "/"  do
-      erb "/login".to_sym,:layout => "/login".to_sym
+  get "/" do
+    erb :"/index",:layout => "/layout1".to_sym
+  end
+  get "/login"  do
+      erb "/login".to_sym,:layout => "/layout1".to_sym
     end
     get "/signup" do
-      erb "/signup".to_sym,:layout => "/signup".to_sym
+      erb "/signup".to_sym,:layout => "/layout1".to_sym
     end
-  # get "/signup" do
-  #   erb "/signup".to_sym
-  # end
+
+
   # get "/" do
   # 	@articles = Article.all
   # 	@categories = Category.all
