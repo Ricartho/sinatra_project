@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       el.string :pseudo
       el.string :email
       el.string :password_digest
-      el.string :type
+      #el.string :type
     end
   end
 end
