@@ -11,9 +11,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :"/index",:layout => "/layout1".to_sym
+    erb :"/index",:layout => "/layout2".to_sym
   end
-
+# get "/" do
+#   erb "/blank".to_sym,:layout => "/blank".to_sym
+# end
 
 
 
