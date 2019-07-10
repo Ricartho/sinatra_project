@@ -30,8 +30,12 @@ class UsersController < ApplicationController
     end
 
     get "/home" do
-      @user = User.find(session[:user_id])
-      erb "/users/home".to_sym
+      if Helpers.is_logged_in?(session)
+        @user = User.find(session[:user_id])
+        erb "/users/home".to_sym
+      else
+        redirect to "/login"
+      end 
     end
 
     get "/logout" do
