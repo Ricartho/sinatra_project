@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+      <div class="topbar-divider d-none d-sm-block"></div>
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= @user.pseudo.capitalize %> </span>
+          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+        </a>
+
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="/logout" >
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
+
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- End of Topbar -->
+
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Your books</h1>
+
+      <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <!-- <th></th>
+                    <th></th> -->
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <!-- <th></th>
+                    <th></th> -->
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <!--Dynamic table -->
+                  <%@articles.each do |article| %>
+                    <tr>
+                      <td><%=article.article_name.capitalize%></td>
+                      <td><%=article.author.fixed_name%></td>
+                      <td><%=article.description.capitalize%></td>
+                      <td><%=article.category.category_name.capitalize%></td>
+                      <!-- <td>Edit</td>
+                      <td>Delete</td> -->
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+  </div>

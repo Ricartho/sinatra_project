@@ -13,23 +13,5 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :"/index",:layout => "/layout2".to_sym
   end
-# get "/" do
-#   erb "/blank".to_sym,:layout => "/blank".to_sym
-# end
-
-
-
-  # get "/" do
-  # 	@articles = Article.all
-  # 	@categories = Category.all
-  # 	@clients = Client.all
-  # 	@images = Image.all
-  #   erb "/welcome".to_sym
-  # end
-
-  # get "/index_articles/:id" do
-  # 	@article = Article.find(params[:id])
-  # 	erb "/show".to_sym ,:layout => "/show".to_sym
-  # end
 
 end

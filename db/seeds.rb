@@ -7,3 +7,5 @@ Author.create(first_name:'Marie-carmel',last_name: 'Osias',phone:'0014438572645'
 Article.create(article_name:'book1',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
 Article.create(article_name:'book2',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
 Article.create(article_name:'book3',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
+User.create(pseudo:'test',email:'test',password:'test')
+Article.create(article_name:'book4',description:'sdksndksndksnddk',user_id:2,category_id:2,author_id:4)
