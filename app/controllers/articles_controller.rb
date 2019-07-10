@@ -9,4 +9,14 @@ class ArticlesController < ApplicationController
         redirect to "/login"
       end
     end
+
+    get "/articles/new" do
+      if Helpers.is_logged_in?(session)
+        @user = User.find(session[:user_id])
+        erb "/articles/new".to_sym
+      else
+          redirect to "/login"
+      end
+
+    end
 end

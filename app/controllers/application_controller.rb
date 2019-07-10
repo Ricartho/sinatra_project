@@ -14,4 +14,6 @@ class ApplicationController < Sinatra::Base
     erb :"/index",:layout => "/layout2".to_sym
   end
 
+
+
 end
