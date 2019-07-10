@@ -33,8 +33,6 @@ class UsersController < ApplicationController
       if Helpers.is_logged_in?(session)
         @user = User.find(session[:user_id])
         @articles = Article.all
-        @categories = Category.all
-        @authors = Author.all 
         erb "/users/home".to_sym
       else
         redirect to "/login"
