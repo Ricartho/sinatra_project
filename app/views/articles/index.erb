@@ -51,8 +51,8 @@
                     <th>Author</th>
                     <th>Description</th>
                     <th>Category</th>
-                    <!-- <th></th>
-                    <th></th> -->
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -61,8 +61,8 @@
                     <th>Author</th>
                     <th>Description</th>
                     <th>Category</th>
-                    <!-- <th></th>
-                    <th></th> -->
+                    <th></th>
+                    <th></th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -73,8 +73,13 @@
                       <td><%=article.author.fixed_name%></td>
                       <td><%=article.description.capitalize%></td>
                       <td><%=article.category.category_name.capitalize%></td>
-                      <!-- <td>Edit</td>
-                      <td>Delete</td> -->
+                      <td><a class="btn btn-primary" href="/articles/<%=article.id%>/edit" >Edit</a></td>
+                      <td>
+                        <form action="/articles/<%=article.id%>/delete" method="post">
+                          <input type="hidden" name="_method" value="delete">
+                          <input type="submit" class="btn btn-primary" value="Delete">
+                       </form>
+                    </td>
                     </tr>
                   <%end%>
                 </tbody>

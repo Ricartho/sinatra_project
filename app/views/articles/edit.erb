@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+      <div class="topbar-divider d-none d-sm-block"></div>
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= @user.pseudo.capitalize %> </span>
+          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+        </a>
+
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="/logout" >
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
+
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- End of Topbar -->
+
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Edit a book</h1>
+      <div class="row">
+
+           <div class="col-lg-6">
+
+             <!-- Default Card Example -->
+             <div class="card mb-4">
+               <div class="card-header">
+                 Edit book informations
+               </div>
+               <div class="card-body">
+                 <form action="/articles/<%=@article.id%>" method="POST">
+                     <input type="hidden" name="_method" value="patch" >
+                     <input type="hidden" name="article[user_id]" value="<%= @user.id %>">
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">Title</label>
+                       <input name="article[article_name]" type="text"  value="<%=@article.article_name%>"class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Ex:The Dianectics">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">Author</label>
+                          <select name="article[author_id]" class="form-control" id="exampleFormControlSelect1">
+                            <% @authors.each do |author| %>
+                             <option value="<%= author.id %>"><%= author.fixed_name %></option>
+                            <%end%>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                            <label for="exampleFormControlSelect1">Category</label>
+                            <select name="article[category_id]" class="form-control" id="exampleFormControlSelect1">
+                              <% @categories.each do |category| %>
+                              <option value="<%= category.id %>"><%= category.category_name %></option>
+                              <% end %>
+                            </select>
+                       </div>
+                       <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea name="article[description]" class="form-control" id="exampleFormControlTextarea1" rows="3">
+                              <%=@article.description%>
+                            </textarea>
+                       </div>
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+               </div>
+             </div>
+
+           </div>
+      </div>
+
+  </div>
