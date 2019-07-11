@@ -1,3 +1,4 @@
+User.create(pseudo: 'rikso18',email: 'ricartho8best@gmail.com',password: 'test')
 Category.create(category_name: 'Romance',user_id: 1)
 Category.create(category_name: 'Horror',user_id: 1)
 Author.create(first_name:'Ricartho',last_name: 'Franck',phone:'31281975',adresse:'#22,cote-plage18',user_id: 1)
