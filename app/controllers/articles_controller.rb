@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
     get "/articles/new" do
       if Helpers.is_logged_in?(session)
         @user = User.find(session[:user_id])
+        @categories = Category.all
+        @authors = Author.all  
         erb "/articles/new".to_sym
       else
           redirect to "/login"
