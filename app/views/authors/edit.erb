@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+      <div class="topbar-divider d-none d-sm-block"></div>
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= @user.pseudo.capitalize %> </span>
+          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+        </a>
+
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="/logout" >
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
+
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- End of Topbar -->
+
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Edit a author</h1>
+      <div class="row">
+
+           <div class="col-lg-6">
+
+             <!-- Default Card Example -->
+             <div class="card mb-4">
+               <div class="card-header">
+                 Edit author informations
+               </div>
+               <div class="card-body">
+                 <form action="/authors/<%=@author.id%>" method="POST">
+                      <input type="hidden" name="author[user_id]" value="<%= @user.id %>">
+                      <input type="hidden" name="_method" value="patch">
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">First Name</label>
+                       <input name="author[first_name]" value="<%=@author.first_name.capitalize%>" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" >
+                     </div>
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">Last Name</label>
+                       <input name="author[last_name]" value="<%=@author.last_name.capitalize %>" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" >
+                     </div>
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">Phone number</label>
+                       <input name="author[phone]" value="<%=@author.phone%>"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" >
+                     </div>
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">Provide adresse</label>
+                       <input name="author[adresse]" value="<%=@author.adresse%>"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" >
+                     </div>
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+               </div>
+             </div>
+
+           </div>
+      </div>
+
+  </div>

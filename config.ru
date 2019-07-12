@@ -5,6 +5,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use AuthorsController
+use CategoryController
 use ArticlesController
 use UsersController
 run ApplicationController
