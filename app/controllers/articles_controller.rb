@@ -48,11 +48,15 @@ class ArticlesController < ApplicationController
 
     get "/articles/:id/edit" do
       if Helpers.is_logged_in?(session)
-        @article = Article.find(params[:id])
         @user = User.find(session[:user_id])
+        @article = Article.find(params[:id])
+        if @article && @article.user == Helpers.current_user(session)
         @categories = Category.all
-        @authors = Author.all
-        erb "/articles/edit".to_sym
+          @authors = Author.all
+          erb "/articles/edit".to_sym
+        else
+          #deal with validations
+        end
       else
         redirect to "/login"
       end
@@ -62,7 +66,8 @@ class ArticlesController < ApplicationController
       if Helpers.is_logged_in?(session)
         @article = Article.find(params[:id])
         @user = User.find(session[:user_id])
-        if @article.update(params[:article])
+        if @article && @article.user == Helpers.current_user(session)
+          @article.update(params[:article])
           redirect to "/articles"
         else
           ##deal with validations
@@ -76,10 +81,16 @@ class ArticlesController < ApplicationController
       if Helpers.is_logged_in?(session)
         @user = User.find(session[:user_id])
         @article = Article.find(params[:id])
-        @article.delete
-        redirect to "/articles"
+        if @article && @article.user == Helpers.current_user(session)
+          @article.delete
+          redirect to "/articles"
+        else
+            ##deal with validations
+        end
       else
         redirect to "/login"
       end
     end
+
+    
 end

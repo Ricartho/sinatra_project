@@ -35,7 +35,7 @@
   <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Edit a book</h1>
+      <h1 class="h3 mb-4 text-gray-800">Informations</h1>
       <div class="row">
 
            <div class="col-lg-6">
@@ -43,39 +43,32 @@
              <!-- Default Card Example -->
              <div class="card mb-4">
                <div class="card-header">
-                 Edit book informations
+                  Informations
                </div>
                <div class="card-body">
-                 <form  action="/articles/<%=@article.id%>" method="POST">
+                 <form >
                      <input type="hidden" name="_method" value="patch" >
                      <input type="hidden" name="article[user_id]" value="<%= @user.id %>">
                      <div class="form-group">
                        <label for="exampleInputEmail1">Title</label>
-                       <input name="article[article_name]" type="text"  value="<%=@article.article_name%>"class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Ex:The Dianectics">
+                       <input  type="text"  value="<%=@article.article_name%>"class="form-control-plaintext" id="exampleInputEmail1" aria-describedby="" placeholder="Ex:The Dianectics" disabled="">
                      </div>
                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Author</label>
-                          <select name="article[author_id]" class="form-control" id="exampleFormControlSelect1">
-                            <% @authors.each do |author| %>
-                             <option value="<%= author.id %>"><%= author.fixed_name %></option>
-                            <%end%>
-                          </select>
-                      </div>
-                      <div class="form-group">
-                            <label for="exampleFormControlSelect1">Category</label>
-                            <select name="article[category_id]" class="form-control" id="exampleFormControlSelect1">
-                              <% @categories.each do |category| %>
-                              <option value="<%= category.id %>"><%= category.category_name %></option>
-                              <% end %>
-                            </select>
-                       </div>
+                       <label for="exampleInputEmail1">Author</label>
+                       <input type="text"  value="<%=@article.author.fixed_name%>"class="form-control-plaintext" id="exampleInputEmail1" aria-describedby="" placeholder="Ex:The Dianectics" disabled="">
+                     </div>
+                     <div class="form-group">
+                       <label for="exampleInputEmail1">Category</label>
+                       <input  type="text"  value="<%=@article.category.category_name%>"class="form-control-plaintext" id="exampleInputEmail1" aria-describedby="" placeholder="Ex:The Dianectics" disabled="">
+                     </div>
+
                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea name="article[description]" class="form-control" id="exampleFormControlTextarea1" rows="3">
+                            <textarea  class="form-control-plaintext" id="exampleFormControlTextarea1" rows="3" disabled="">
                               <%=@article.description%>
                             </textarea>
                        </div>
-                       <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
 
                </div>
