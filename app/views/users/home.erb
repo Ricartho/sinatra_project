@@ -63,9 +63,9 @@
                   <!--Dynamic table -->
                   <%@articles.each do |article| %>
                     <tr>
-                      <td><%=article.author.fixed_name%></td>
-                      <td><%=article.article_name.capitalize%></td>
-                      <td><%=article.category.category_name.capitalize%></td>
+                      <td><a href="/authors/<%=article.author.id%>"><%=article.author.fixed_name%></a></td>
+                      <td><a href="/articles/<%=article.id%>"><%=article.article_name.capitalize%></a></td>
+                      <td><a href="/categories/<%=article.category.id%>"><%=article.category.category_name.capitalize%></a></td>
                     </tr>
                   <%end%>
                 </tbody>
