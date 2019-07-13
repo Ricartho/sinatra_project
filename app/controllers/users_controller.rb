@@ -47,4 +47,14 @@ class UsersController < ApplicationController
         redirect to "/"
       end
     end
+    get "/profil" do
+      if Helpers.is_logged_in?(session)
+        @user = User.find(session[:user_id])
+        erb "/users/profil".to_sym
+      else
+        redirect to "/login"
+      end
+    end
+
+
 end

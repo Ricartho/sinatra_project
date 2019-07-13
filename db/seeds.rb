@@ -1,4 +1,5 @@
 User.create(pseudo: 'rikso18',email: 'ricartho8best@gmail.com',password: 'test')
+User.create(pseudo:'test',email:'test',password:'test')
 Category.create(category_name: 'Romance',user_id: 1)
 Category.create(category_name: 'Horror',user_id: 1)
 Author.create(first_name:'Ricartho',last_name: 'Franck',phone:'31281975',adresse:'#22,cote-plage18',user_id: 1)
@@ -8,5 +9,4 @@ Author.create(first_name:'Marie-carmel',last_name: 'Osias',phone:'0014438572645'
 Article.create(article_name:'book1',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
 Article.create(article_name:'book2',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
 Article.create(article_name:'book3',description:'sdksndksndksnddk',user_id:1,category_id:1,author_id:1)
-User.create(pseudo:'test',email:'test',password:'test')
 Article.create(article_name:'book4',description:'sdksndksndksnddk',user_id:2,category_id:2,author_id:4)
